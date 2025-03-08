@@ -2,9 +2,15 @@
 
 import dynamic from 'next/dynamic';
 
-// Import DarkModeToggle with no SSR to avoid hydration errors
-const DarkModeToggle = dynamic(() => import('./DarkModeToggle'), { ssr: false });
+// Import the component with no SSR to avoid hydration errors
+const DarkModeToggle = dynamic(() => import('./DarkModeToggle'), {
+  ssr: false,
+});
 
-export default function ClientDarkModeToggle() {
-  return <DarkModeToggle />;
+interface ClientDarkModeToggleProps {
+  className?: string;
+}
+
+export default function ClientDarkModeToggle({ className }: ClientDarkModeToggleProps) {
+  return <DarkModeToggle className={className} />;
 } 

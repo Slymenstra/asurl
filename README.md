@@ -1,29 +1,31 @@
-# ASURL - The Simple URL Shortener
+# ASURL - Modern URL Shortener
 
-ASURL is a user-friendly URL shortening service that creates readable short links. It allows users to shorten long URLs into more manageable, easy-to-share links.
+ASURL is a sleek, modern URL shortening service built with Next.js and MongoDB. It features a minimalist design focused on simplicity and usability.
 
 ## Features
 
-- **Simple URL Shortening**: Convert long URLs into short, user-readable links
-- **Easy Sharing**: Copy shortened URLs with one click
-- **Click Tracking**: Monitor how many times your shortened links have been clicked
-- **Persistence**: All shortened URLs are stored in a MongoDB database
-- **Clean UI**: Modern, responsive user interface built with Next.js and Tailwind CSS
+- **Instant URL Shortening**: Convert long URLs into concise, shareable links
+- **Modern UI**: Clean, minimalist interface with dark mode support
+- **Copy to Clipboard**: One-click copying of shortened URLs
+- **Responsive Design**: Works seamlessly on all devices
+- **MongoDB Storage**: Reliable persistence of all shortened URLs
+- **Docker Support**: Easy setup with containerized MongoDB
 
 ## Tech Stack
 
-- **Frontend**: Next.js with TypeScript and Tailwind CSS
-- **Backend**: Next.js API Routes
-- **Database**: MongoDB (with Mongoose ODM)
-- **Form Handling**: React Hook Form with Zod validation
-- **URL Generation**: nanoid for creating short, unique codes
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Database**: MongoDB with Mongoose
+- **Validation**: Zod + React Hook Form
+- **Container**: Docker for MongoDB
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18.x or later
-- MongoDB (local instance or MongoDB Atlas)
+- Docker Desktop (for MongoDB)
+- Git
 
 ### Installation
 
@@ -38,42 +40,85 @@ ASURL is a user-friendly URL shortening service that creates readable short link
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env.local` file in the root directory with the following variables:
-   ```
-   MONGODB_URI=your_mongodb_connection_string
+3. Start MongoDB using Docker:
+   ```bash
+   docker run --name mongodb -d -p 27017:27017 mongo:latest
    ```
 
-4. Run the development server:
+4. Create `.env.local` file:
+   ```
+   MONGODB_URI=mongodb://localhost:27017/url-shortener
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   ```
+
+5. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Usage
+### Docker Commands
 
-1. Enter a long URL in the input field
-2. Click "Shorten URL"
-3. Copy the shortened URL to share with others
-4. When someone visits the shortened URL, they will be redirected to the original URL
+Start MongoDB:
+```bash
+docker start mongodb
+```
 
-## Deployment
+Stop MongoDB:
+```bash
+docker stop mongodb
+```
 
-This application can be easily deployed to Vercel:
+Check MongoDB status:
+```bash
+docker ps
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fasurl)
+## Development
+
+The project uses several modern development tools:
+
+- **TypeScript** for type safety
+- **ESLint** for code linting
+- **Prettier** for code formatting
+- **shadcn/ui** for UI components
+- **Tailwind CSS** for styling
+
+## Project Structure
+
+```
+asurl/
+├── src/
+│   ├── app/              # Next.js app router pages
+│   ├── components/       # React components
+│   ├── lib/             # Utility functions and services
+│   └── models/          # MongoDB models
+├── public/              # Static files
+└── ...config files
+```
+
+## Environment Variables
+
+- `MONGODB_URI`: MongoDB connection string
+- `NEXT_PUBLIC_BASE_URL`: Base URL for shortened links
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgements
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
 - [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [nanoid](https://github.com/ai/nanoid)
-- [React Hook Form](https://react-hook-form.com/)
-- [Zod](https://github.com/colinhacks/zod)
+- [Docker](https://www.docker.com/)
