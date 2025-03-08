@@ -1,89 +1,59 @@
 # ASURL - Modern URL Shortener
 
-ASURL is a sleek, modern URL shortening service built with Next.js and MongoDB. It features a minimalist design focused on simplicity and usability.
+A sleek, modern URL shortening service built with Next.js 14 and MongoDB. Features a minimalist design with dark mode support.
+
+![ASURL Screenshot](public/screenshot.png)
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Slymenstra/asurl.git
+cd asurl
+
+# Install dependencies
+npm install
+
+# Start MongoDB with Docker
+docker run --name mongodb -d -p 27017:27017 mongo:latest
+
+# Create .env.local file
+echo "MONGODB_URI=mongodb://localhost:27017/url-shortener" > .env.local
+echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" >> .env.local
+
+# Run the development server
+npm run dev
+```
 
 ## Features
 
-- **Instant URL Shortening**: Convert long URLs into concise, shareable links
-- **Modern UI**: Clean, minimalist interface with dark mode support
-- **Copy to Clipboard**: One-click copying of shortened URLs
-- **Responsive Design**: Works seamlessly on all devices
-- **MongoDB Storage**: Reliable persistence of all shortened URLs
-- **Docker Support**: Easy setup with containerized MongoDB
+- 🔗 Instant URL shortening
+- 🌓 Dark mode support
+- 📱 Responsive design
+- 🔄 One-click copy to clipboard
+- 🎨 Modern, minimalist UI
+- 🗃️ MongoDB persistence
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS with shadcn/ui components
+- **Styling**: Tailwind CSS + shadcn/ui
 - **Database**: MongoDB with Mongoose
 - **Validation**: Zod + React Hook Form
 - **Container**: Docker for MongoDB
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18.x or later
-- Docker Desktop (for MongoDB)
-- Git
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/asurl.git
-   cd asurl
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start MongoDB using Docker:
-   ```bash
-   docker run --name mongodb -d -p 27017:27017 mongo:latest
-   ```
-
-4. Create `.env.local` file:
-   ```
-   MONGODB_URI=mongodb://localhost:27017/url-shortener
-   NEXT_PUBLIC_BASE_URL=http://localhost:3000
-   ```
-
-5. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### Docker Commands
-
-Start MongoDB:
-```bash
-docker start mongodb
-```
-
-Stop MongoDB:
-```bash
-docker stop mongodb
-```
-
-Check MongoDB status:
-```bash
-docker ps
-```
-
 ## Development
 
-The project uses several modern development tools:
+```bash
+# Start MongoDB
+docker start mongodb
 
-- **TypeScript** for type safety
-- **ESLint** for code linting
-- **Prettier** for code formatting
-- **shadcn/ui** for UI components
-- **Tailwind CSS** for styling
+# Stop MongoDB
+docker stop mongodb
+
+# Check MongoDB status
+docker ps
+```
 
 ## Project Structure
 
@@ -92,16 +62,10 @@ asurl/
 ├── src/
 │   ├── app/              # Next.js app router pages
 │   ├── components/       # React components
-│   ├── lib/             # Utility functions and services
+│   ├── lib/             # Utility functions
 │   └── models/          # MongoDB models
-├── public/              # Static files
 └── ...config files
 ```
-
-## Environment Variables
-
-- `MONGODB_URI`: MongoDB connection string
-- `NEXT_PUBLIC_BASE_URL`: Base URL for shortened links
 
 ## Contributing
 
@@ -113,12 +77,11 @@ asurl/
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License
 
-## Acknowledgements
+## Links
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Docker](https://www.docker.com/)
+- [Repository](https://github.com/Slymenstra/asurl)
+- [Issues](https://github.com/Slymenstra/asurl/issues)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui Components](https://ui.shadcn.com)
